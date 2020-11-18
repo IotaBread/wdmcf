@@ -63,6 +63,8 @@ jar {
 	from "LICENSE"
 }
 
+// TODO: Bintray publication, Mod icon
+
 // configure the maven publication
 publishing {
 	publications {

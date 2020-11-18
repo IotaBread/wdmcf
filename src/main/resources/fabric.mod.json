@@ -1,16 +1,16 @@
 {
     "schemaVersion": 1,
-    "id": "mod-skeleton",
+    "id": "wdmcf",
     "version": "${version}",
 
-    "name": "Mod Skeleton",
-    "description": "Mod Skeleton",
+    "name": "Why Did My Command Fail",
+    "description": "A mod that makes Minecraft always print the exception to the console when the message \"An unexpected error occurred trying to execute that command\" is sent to the client. This mod is intended to be used on development environments, you shouldn't install it on your normal client/server.",
     "authors": [
         "ByMartrixx"
     ],
     "contact": {
-        "sources": "https://github.com/ByMartrixx/mod-skeleton",
-        "issues": "https://github.com/ByMartrixx/mod-skeleton"
+        "sources": "https://github.com/ByMartrixx/wdmcf",
+        "issues": "https://github.com/ByMartrixx/wdmcf"
     },
 
     "custom": {
@@ -19,15 +19,17 @@
     },
 
     "license": "MIT",
-    "icon": "assets/mod-skeleton/icon.png",
+    "icon": "assets/wdmcf/icon.png",
 
     "environment": "*",
     "entrypoints": {
         "main": [
-            "io.github.bymartrixx.skeleton.ModSkeleton"
+            "io.github.bymartrixx.wdmcf.WDMCFMod"
         ]
     },
-    "mixins": [],
+    "mixins": [
+        "wdmcf.mixins.json"
+    ],
 
     "depends": {
         "fabricloader": ">=0.7.4",
