@@ -1,0 +1,37 @@
+{
+    "schemaVersion": 1,
+    "id": "mod-skeleton",
+    "version": "${version}",
+
+    "name": "Mod Skeleton",
+    "description": "Mod Skeleton",
+    "authors": [
+        "ByMartrixx"
+    ],
+    "contact": {
+        "sources": "https://github.com/ByMartrixx/mod-skeleton",
+        "issues": "https://github.com/ByMartrixx/mod-skeleton"
+    },
+
+    "custom": {
+        "modmenu:api": false,
+        "modmenu:clientsideOnly": false
+    },
+
+    "license": "MIT",
+    "icon": "assets/mod-skeleton/icon.png",
+
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "io.github.bymartrixx.skeleton.ModSkeleton"
+        ]
+    },
+    "mixins": [],
+
+    "depends": {
+        "fabricloader": ">=0.7.4",
+        "fabric": "*",
+        "minecraft": "1.16.x"
+    }
+}
