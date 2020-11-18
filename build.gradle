@@ -1,7 +1,17 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
+	}
+}
+
 plugins {
 	id 'fabric-loom' version '0.5-SNAPSHOT'
 	id 'maven-publish'
 }
+apply plugin: 'com.jfrog.bintray'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -15,6 +25,7 @@ repositories {
 		name 'JitPack'
 		url 'https://jitpack.io'
 	}
+	jcenter()
 }
 
 dependencies {
@@ -63,19 +74,51 @@ jar {
 	from "LICENSE"
 }
 
-// TODO: Bintray publication, Mod icon
+bintray {
+	user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+	key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_KEY')
+	publications = ["mavenJava"]
+	publish = false
+	pkg {
+		repo = 'maven'
+		name = 'wdmcf'
+		licenses = ['MIT']
+		vcsUrl = 'https://github.com/ByMartrixx/wdmcf'
+		version {
+			released = new Date()
+			githubRepo = 'ByMartrixx/wdmcf'
+			websiteUrl = 'https://github.com/ByMartrixx/wdmcf'
+			issueTrackerUrl = 'https://github.com/ByMartrixx/wdmcf/issues'
+			vcsUrl = 'https://github.com/ByMartrixx/wdmcf'
+			gpg {
+				sign = true
+			}
+		}
+	}
+}
 
 // configure the maven publication
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			// add all the jars that should be included when publishing to maven
-			artifact(remapJar) {
+			artifact(jar) {
+				builtBy remapJar
+			}
+			artifact("${project.buildDir.absolutePath}/libs/${archivesBaseName}-${project.version}.jar") {
 				builtBy remapJar
 			}
 			artifact(sourcesJar) {
 				builtBy remapSourcesJar
 			}
+			pom.withXml {
+				def root = asNode()
+				root.appendNode('description', 'A mod that makes Minecraft always print the exception to the console when the message "An unexpected error occurred trying to execute that command" is sent to the client.')
+				root.appendNode('name', 'Why Did My Command Fail')
+				root.appendNode('url', 'https://github.com/ByMartrixx/wdmcf')
+			}
+			groupId("${project.maven_group}")
+			artifactId 'wdmcf'
 		}
 	}
 
