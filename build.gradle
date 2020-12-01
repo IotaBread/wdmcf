@@ -41,7 +41,7 @@ dependencies {
 	modImplementation "io.github.prospector:modmenu:${project.modmenu_version}"
 
 	// Sodium
-	modImplementation "com.github.jellysquid3:sodium-fabric:mc${project.sodium_version}"
+	modCompileOnly "com.github.jellysquid3:sodium-fabric:mc${project.sodium_version}"
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
