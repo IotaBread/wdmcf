@@ -10,16 +10,10 @@
     ],
     "contact": {
         "sources": "https://github.com/ByMartrixx/wdmcf",
-        "issues": "https://github.com/ByMartrixx/wdmcf"
-    },
-
-    "custom": {
-        "modmenu:api": false,
-        "modmenu:clientsideOnly": false
+        "issues": "https://github.com/ByMartrixx/wdmcf/issues"
     },
 
     "license": "MIT",
-    "icon": "assets/wdmcf/icon.png",
 
     "environment": "*",
     "mixins": [
@@ -28,5 +22,8 @@
 
     "depends": {
         "minecraft": ">=1.15"
+    },
+    "breaks": {
+        "carpet": "*"
     }
 }
