@@ -22,11 +22,6 @@
     "icon": "assets/wdmcf/icon.png",
 
     "environment": "*",
-    "entrypoints": {
-        "main": [
-            "io.github.bymartrixx.wdmcf.WDMCFMod"
-        ]
-    },
     "mixins": [
         "wdmcf.mixins.json"
     ],
