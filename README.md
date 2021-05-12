@@ -17,6 +17,6 @@ repositories {
 }
 
 dependencies {
-    modImplementation 'me.bymartrixx:wdmcf:1.0.1'
+    modImplementation 'me.bymartrixx:wdmcf:1.0.2'
 }
 ```
