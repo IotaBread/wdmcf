@@ -5,15 +5,14 @@ build/
 out/
 classes/
 
+# eclipse
+
+*.launch
+
 # idea
 
-!.idea/
-
-.idea/*
-!.idea/modules/
-!.idea/runConfigurations/
-!.idea/gradle.xml
-!.idea/misc.xml
+.idea/
+*.iml
 *.ipr
 *.iws
 
@@ -25,13 +24,15 @@ bin/
 .classpath
 .project
 
+# macos
+
+*.DS_Store
+
 # fabric
 
-!run/
-run/*
-!run/resourcepacks/
-!run/options.txt
+run/
+run_server/
 
-!run_server/
-run_server/*
-!run_server/server.properties
+# misc
+**/logs/
+.cache
